@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Parser</title>
+
+	<link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+	<script src="./js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="./js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="./module_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="module.rb">module.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-c-new">::new</a></li>
+					
+					<li><a href="#method-i-ValiableParse">#ValiableParse</a></li>
+					
+					<li><a href="#method-i-parse">#parse</a></li>
+					
+					<li><a href="#method-i-parse_argarea">#parse_argarea</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+			<div id="includes-section" class="section">
+				<h3 class="section-header">Included Modules</h3>
+				<ul class="link-list">
+				
+				
+					<li><a class="include" href="ExpConst.html">ExpConst</a></li>
+				
+				
+				</ul>
+			</div>
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="./README.html">README</a></li>
+				
+					<li class="file"><a href="./test_txt.html">test.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="./images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="./ArgException.html">ArgException</a></li>
+				
+					<li><a href="./ExpConst.html">ExpConst</a></li>
+				
+					<li><a href="./Function.html">Function</a></li>
+				
+					<li><a href="./Module.html">Module</a></li>
+				
+					<li><a href="./ParseException.html">ParseException</a></li>
+				
+					<li><a href="./Parser.html">Parser</a></li>
+				
+					<li><a href="./Printer.html">Printer</a></li>
+				
+					<li><a href="./VarTypeException.html">VarTypeException</a></li>
+				
+					<li><a href="./Variable.html">Variable</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Parser</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-class-method-details" class="method-section section">
+			<h3 class="section-header">Public Class Methods</h3>
+
+		
+			<div id="new-method" class="method-detail ">
+				<a name="method-c-new"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">new</span><span
+						class="method-args">(parseFileName)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="new-source">
+<pre>
+    <span class="ruby-comment cmt"># File module.rb, line 75</span>
+75:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">parseFileName</span>)
+76:     <span class="ruby-ivar">@fileName</span> = <span class="ruby-identifier">parseFileName</span>
+77:     <span class="ruby-ivar">@module</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
+78:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="-aliable-arse-method" class="method-detail ">
+				<a name="method-i-ValiableParse"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">ValiableParse</span><span
+						class="method-args">(file, line)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="-aliable-arse-source">
+<pre>
+     <span class="ruby-comment cmt"># File module.rb, line 137</span>
+137:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>)
+138:     <span class="ruby-identifier">finish</span> = <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> 
+139:     <span class="ruby-node">/^\s*(input|output\s+reg|output)                 # type
+140:     \s*\[(\d+:\d+)\]                                   # bus
+141:     \s+(.*)                                          # name
+142:     \s*(,|\))                                        # end mark
+143:     \s*(#{EXP_LINECOMMENT}|#{EXP_MULTILINECOMMENT})  # comment
+144:       /</span>
+145: 
+146:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">finish</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">finish</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">false</span>
+147:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ParseException</span>, <span class="ruby-node">&quot;parse failed, this line : #{line}&quot;</span>
+148:     <span class="ruby-keyword kw">end</span>
+149: 
+150:     <span class="ruby-identifier">type</span> = <span class="ruby-node">$1</span>
+151: 
+152:     <span class="ruby-comment cmt"># バス配線を整数値に変更する処理</span>
+153:     <span class="ruby-identifier">bus_str</span> = <span class="ruby-node">$2</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;:&quot;</span>)
+154:     <span class="ruby-identifier">bus</span> = []
+155:     <span class="ruby-identifier">bus_str</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">num_str</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bus</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">num_str</span>.<span class="ruby-identifier">to_i</span> }
+156: 
+157:     <span class="ruby-identifier">name</span> = <span class="ruby-node">$3</span>
+158:     <span class="ruby-identifier">comment</span> = <span class="ruby-node">$5</span>
+159: 
+160:     <span class="ruby-identifier">var</span> = <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">type</span>,<span class="ruby-identifier">bus</span>,<span class="ruby-identifier">name</span>,<span class="ruby-identifier">comment</span>)
+161: 
+162:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">var</span>
+163:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parse-method" class="method-detail ">
+				<a name="method-i-parse"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parse</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="parse-source">
+<pre>
+    <span class="ruby-comment cmt"># File module.rb, line 80</span>
+80:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse</span>
+81:     <span class="ruby-identifier">file</span> = <span class="ruby-identifier">open</span>(<span class="ruby-ivar">@fileName</span>, <span class="ruby-value str">&quot;r&quot;</span>)
+82: 
+83:     <span class="ruby-keyword kw">while</span>(<span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>)
+84:       <span class="ruby-keyword kw">case</span>(<span class="ruby-identifier">line</span>)
+85:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_COMMENT_BEGIN</span>
+86:         <span class="ruby-identifier">parse_comment</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+87:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_ARGAREA_BEGIN</span>
+88:         <span class="ruby-identifier">parse_argArea</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+89:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_FUNC_BEGIN</span>
+90:         <span class="ruby-identifier">parse_func</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+91:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_WIRE</span>
+92:         <span class="ruby-identifier">variable</span> = <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+93:         <span class="ruby-ivar">@module</span>.<span class="ruby-identifier">wires</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">variable</span>
+94:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_REG</span>
+95:         <span class="ruby-identifier">variable</span> = <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+96:         <span class="ruby-ivar">@module</span>.<span class="ruby-identifier">regs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">variable</span>
+97:       <span class="ruby-keyword kw">end</span>
+98:     <span class="ruby-keyword kw">end</span>
+99:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="parse-argarea-method" class="method-detail ">
+				<a name="method-i-parse_argarea"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">parse_argarea</span><span
+						class="method-args">(file, line)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					
+					
+
+					
+					<div class="method-source-code"
+						id="parse-argarea-source">
+<pre>
+     <span class="ruby-comment cmt"># File module.rb, line 101</span>
+101:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_argarea</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>)
+102:     <span class="ruby-comment cmt"># 現在の行にモジュール開始の&quot;(&quot;が含まれていない場合、見つかるまで飛ばす</span>
+103:     <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/\(/</span>
+104:       <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+105:     <span class="ruby-keyword kw">end</span>
+106: 
+107:     <span class="ruby-comment cmt">#&quot;(&quot;の後すぐに改行している場合</span>
+108:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\s\(\s$/</span>
+109:       <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+110:     <span class="ruby-keyword kw">end</span>
+111: 
+112:     <span class="ruby-comment cmt"># モジュール宣言終了の&quot;);&quot;までparse</span>
+113:     <span class="ruby-keyword kw">while</span>(<span class="ruby-keyword kw">true</span>)
+114:       <span class="ruby-keyword kw">case</span>(<span class="ruby-identifier">line</span>)
+115:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_INPUT</span>
+116:         <span class="ruby-identifier">variable</span> = <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+117:         <span class="ruby-ivar">@module</span>.<span class="ruby-identifier">inputs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">variable</span>
+118:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_OUTPUT</span>
+119:         <span class="ruby-identifier">variable</span> = <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+120:         <span class="ruby-ivar">@module</span>.<span class="ruby-identifier">outputs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">variable</span>
+121:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_OUTPUTREG</span>
+122:         <span class="ruby-identifier">variable</span> = <span class="ruby-constant">ValiableParse</span>(<span class="ruby-identifier">file</span>,<span class="ruby-identifier">line</span>)
+123:         <span class="ruby-ivar">@module</span>.<span class="ruby-identifier">output_regs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">variable</span>
+124:       <span class="ruby-keyword kw">when</span> <span class="ruby-constant">EXP_ARGAREA_END</span>
+125:         <span class="ruby-keyword kw">break</span>
+126:       <span class="ruby-keyword kw">else</span>
+127:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgException</span>, <span class="ruby-node">&quot;parse of argument area failed. this line : #{line}&quot;</span>
+128:       <span class="ruby-keyword kw">end</span>
+129: 
+130:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">EXP_ARGAREA_END</span>
+131:         <span class="ruby-keyword kw">break</span>
+132:       <span class="ruby-keyword kw">end</span>
+133: 
+134:     <span class="ruby-keyword kw">end</span>
+135:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+

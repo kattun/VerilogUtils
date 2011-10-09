@@ -3,3 +3,23 @@ now making is...
 
 1. SubModuleGen
 2. TestMaker
+
+●仕様●
+・上位モジュールのarg内でコメント化された配線は下位モジュールに引き継がない
+
+/* 上位モジュール */
+module_hoge hoge1
+(
+ .CLK(CLK),
+ //.hoge(h),
+ 
+ .OUT(out)
+ );
+
+/* 生成される下位モジュール */
+module module_hoge
+(
+ input CLK,
+ output out
+ );
+input hoge　は配線されない。
