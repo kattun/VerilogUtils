@@ -17,6 +17,7 @@ module ExpConst
   EXP_OUTPUTREG = /^\s*output\s+reg/
   EXP_WIRE = /^\s*wire/
   EXP_REG = /^\s*reg/
+  EXP_FUNCTION = /^\s*function/
 
   # comment
   EXP_LINECOMMENT = /\/\/.*$/
@@ -44,7 +45,7 @@ class Function
   def initialize(func, inputs, contents)
     @func = func
     @inputs = inputs
-    @contents = content
+    @contents = contents
   end
   attr_accessor :inputs,:contents
   attr_reader :func
@@ -64,6 +65,8 @@ class Variable
       @type = "wire"
     when EXP_REG
       @type = "reg"
+    when EXP_FUNCTION
+      @type = "function"
     else 
       raise VarTypeException, "variable error, unknown type : #{@type}"
     end
@@ -93,11 +96,11 @@ class Parser
         function = parse_func(file,line)
         @module.functions << function
       when EXP_WIRE
-        variable = VariableParse(line)
-        @module.wires << variable
+        variables = VariableParse(line)
+        variables.each{|variable| @module.wires << variable }
       when EXP_REG
-        variable = VariableParse(line)
-        @module.regs << variable
+        variables = VariableParse(line)
+        variables.each{|variable| @module.regs << variable }
       else
         @module.contents << line
       end
@@ -145,14 +148,14 @@ class Parser
   def parse_argarea_case(line)
       case(line)
       when EXP_INPUT
-        variable = VariableParse(line)
-        @module.inputs << variable
+        variables = VariableParse(line)
+        variables.each{|variable| @module.inputs << variable }
       when EXP_OUTPUT
-        variable = VariableParse(line)
-        @module.outputs << variable
+        variables = VariableParse(line)
+        variables.each{|variable| @module.outputs << variable }
       when EXP_OUTPUTREG
-        variable = VariableParse(line)
-        @module.output_regs << variable
+        variables = VariableParse(line)
+        variables.each{|variable| @module.output_regs << variable }
       else
         raise ArgException, "parse of argument area failed. this line : #{line}"
       end
@@ -177,15 +180,17 @@ class Parser
   private :parse_lineComment
 
   def VariableParse(line)
+    line_ary = line.split(",")
+    line = line_ary.shift
+
     finish = line =~ 
-    /^\s*(input|output\s+reg|output|function)                 # type
-    (\s*\[(\d+:\d+)\]|)                                   # bus
-    \s*(.*)                                          # name
-    \s*(,|\)|;|)                                        # end mark
+    /^\s*(input|output\s+reg|output|reg|wire|function)                 # type
+    \s*(\[(\d+:\d+)\]|)                                   # bus
+    \s*(\w+)                                          # name
+    \s*(\)|;|)                                        # end mark
     \s*(#{EXP_LINECOMMENT}|#{EXP_MULTILINECOMMENT}|)  # comment
       /x
 
-    pp line, finish
     if finish.nil? || finish == false
       raise ParseException, "parse failed, this line : #{line}"
     end
@@ -193,21 +198,38 @@ class Parser
     type = $1
 
     # バス配線を整数値に変更する処理
-    bus_str = $2.split(":")
     bus = []
-    bus_str.each{|num_str| bus << num_str.to_i }
+    unless $3.nil?
+      bus_str = $3.split(":")
+      bus_str.each{|num_str| bus << num_str.to_i }
+    end
 
-    name = $3
-    comment = $5
+    name = $4
+    comment = $6
+    line_ary.push(name)
 
-    var = Variable.new(type,bus,name,comment)
+    vars = []
+    pp "line_ary = #{line_ary}"
+    line_ary.each do |item|
+      item.gsub!(/\s/, "")
+      item.gsub!(/;/, "")
 
-    return var
+      items = item.split("#")
+      pp "items = #{items}"
+      if items[1].nil?
+        vars << Variable.new(type, bus, items[0], comment)
+      else 
+        vars << Variable.new(type, bus, items[0], items[1])
+      end
+      pp "vars = #{vars}"
+    end
+
+    return vars
   end
   private :VariableParse
 
   def parse_func(file, line)
-    func = VariableParse(line)
+    func = VariableParse(line)[0]
 
     inputs = []
     line = file.gets
@@ -234,4 +256,3 @@ end
 INPUTFILE = "sdrd_SPIctrl.v"
 parser = Parser.new(INPUTFILE)
 parser.parse
-pp parser.module
