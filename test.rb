@@ -1,9 +1,4 @@
-str = "hoge"
+str = "hoge #ほげです"
+str2 = "hoge"
 
-f = open("test.txt", "r")
-
-line = f.gets
-# 不可
-while(line += f.gets)
-p line
-end
+p str2.split("#")

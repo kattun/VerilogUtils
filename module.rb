@@ -253,6 +253,6 @@ class Printer
 end
 
 #INPUTFILE = ARGV[0]
-INPUTFILE = "sdrd_SPIctrl.v"
-parser = Parser.new(INPUTFILE)
-parser.parse
+# INPUTFILE = "sdrd_SPIctrl.v"
+# parser = Parser.new(INPUTFILE)
+# parser.parse
