@@ -1,4 +1,5 @@
 require 'pp'
+require 'kconv'
 
 #
 # Verilogのパースで使う正規表現の定数
@@ -162,6 +163,8 @@ class Parser
         @module.contents << line
       end
     end
+
+    return @module
   end
 
   #
@@ -277,7 +280,6 @@ class Parser
     vars = []
     names.each{|name| vars << Variable.new(type, bus, name, comment) }
 
-    pp vars
     return vars
   end
   private :VariableParse
@@ -310,11 +312,57 @@ end
 # moduleクラスを出力するクラス
 #
 class Printer
+  def initialize
+  end
+
+  def print(mod)
+  end
+
+  def make_inoutSeat(filename, mod)
+    fp = open(filename, "w")
+    
+    fp.puts "input"
+    mod.inputs.each{|input|
+      str = input.name
+
+      if input.bus.empty?
+        bit = "0"
+      else
+        bit = (input.bus[0]-input.bus[1]+1).to_s
+      end
+      str += "," + bit
+
+      cmnt = input.comment.gsub(/^\s*\/\*\s*/, "").gsub(/\s*\*\/\s*$/, "")
+      cmnt = input.comment.gsub(/^\s*\/\/\s*/, "")
+      str += "," + cmnt
+      fp.puts str.kconv(Kconv::SJIS, Kconv::UTF8)
+    }
+
+    fp.puts "\n"
+
+    fp.puts "output"
+    mod.outputs.each{|output|
+      str = output.name
+
+      if output.bus.empty?
+        bit = "0"
+      else
+        bit = (output.bus[0]-output.bus[1]+1).to_s
+      end
+      str += "," + bit
+
+      cmnt = output.comment.gsub(/^\s*\/\*\s*/, "").gsub(/\s*\*\/\s*$/, "")
+      cmnt = output.comment.gsub(/^\s*\/\/\s*/, "")
+      str += "," + cmnt
+      fp.puts str
+    }
+  end
 end
 
 #INPUTFILE = ARGV[0]
- INPUTFILE = "sdrd_SPIctrl.v"
- parser = Parser.new(INPUTFILE)
- parser.parse
+INPUTFILE = "sdrd_SPIctrl.v"
+parser = Parser.new(INPUTFILE)
+printer = Printer.new
+printer.make_inoutSeat("test.csv", parser.parse)
 
- #pp parser.module.inputs
+#pp parser.module.inputs
