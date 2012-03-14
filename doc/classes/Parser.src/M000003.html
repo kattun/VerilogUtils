@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>parse_func (Parser)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File module.rb, line 315</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_func</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span>)
+    <span class="ruby-identifier">func</span> = <span class="ruby-constant">VariableParse</span>(<span class="ruby-identifier">line</span>)[<span class="ruby-value">0</span>]
+
+    <span class="ruby-identifier">inputs</span> = []
+    <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+    <span class="ruby-keyword kw">while</span>(<span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">EXP_INPUT</span>)
+      <span class="ruby-identifier">inputs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">VariableParse</span>(<span class="ruby-identifier">line</span>)
+      <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">contents</span> = []
+    <span class="ruby-keyword kw">until</span>(<span class="ruby-identifier">line</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">EXP_FUNC_END</span>)
+      <span class="ruby-identifier">contents</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+      <span class="ruby-identifier">line</span> = <span class="ruby-identifier">file</span>.<span class="ruby-identifier">gets</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">function</span> = <span class="ruby-constant">Function</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">func</span>, <span class="ruby-identifier">inputs</span>, <span class="ruby-identifier">contents</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">function</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

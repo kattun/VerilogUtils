@@ -1,0 +1,15 @@
+input
+CLK,0,
+RST_X,0,
+SD_DO_7,0,
+
+output
+WR,0,
+DATA,64,
+SD_CS_1,0,
+SD_DI_2,0,
+SD_GND_3,0,
+SD_VCC_4,0,
+SD_CLK_5,0,
+SD_GND_6,0,
+DEBUG,4,

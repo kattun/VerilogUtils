@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: ExpConst</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">ExpConst</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/module_rb.html">
+                module.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Verilogのパースで使う正規表現の定数
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_LINECOMMENT_BEGIN</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*\/\//</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Area
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_MULTICOMMENT_BEGIN</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*\/\*/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_MULTICOMMENT_END</td>
+          <td>=</td>
+          <td class="context-item-value">/\*\//</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_ARGAREA_BEGIN</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*module/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_ARGAREA_END</td>
+          <td>=</td>
+          <td class="context-item-value">/\);/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_ARGAREA_ENDONLY</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*\);/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_FUNC_BEGIN</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*function/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_FUNC_END</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*endfunction/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_INPUT</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*input/</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+Args
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_OUTPUT</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*output/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_OUTPUTREG</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*output\s+reg/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_WIRE</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*wire/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_REG</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*reg/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_FUNCTION</td>
+          <td>=</td>
+          <td class="context-item-value">/\A\s*function/</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_LINECOMMENT</td>
+          <td>=</td>
+          <td class="context-item-value">/\/\/.*$/</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc">
+comment
+
+</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EXP_MULTILINECOMMENT</td>
+          <td>=</td>
+          <td class="context-item-value">/\/\*.*\*\//m</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
